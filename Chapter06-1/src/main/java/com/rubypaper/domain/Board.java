@@ -26,10 +26,9 @@ public class Board {
 	
 	private String content;
 	
-	@Column(insertable=false, updatable=false)
-	@Temporal(value = TemporalType.TIMESTAMP)
+	@Column(insertable=false, updatable=false, columnDefinition = "datetime default CURRENT_TIMESTAMP")
 	private Date createDate;
 	
-	@Column(insertable=false, updatable=false)
+	@Column(insertable=false, updatable=false, columnDefinition = "bigint default 0")
 	private Long cnt;
 }

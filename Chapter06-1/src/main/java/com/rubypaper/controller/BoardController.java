@@ -27,6 +27,12 @@ public class BoardController {
 		
 	}
 	
+	@GetMapping("/getBoard")
+	public String getBoard(Model model, Board board) {
+		model.addAttribute("board", boardService.getBoard(board));
+		return "getBoard";
+	}
+	
 	@GetMapping("/insertBoard") //Get 방식으로 들어왔을경우
 	public String insertBoardView() {
 		return "insertBoard";
@@ -36,5 +42,17 @@ public class BoardController {
 	public String insertBoard(Board board) {
 		boardService.insertBoard(board);
 		return "redirect:getBoardList";
+	}
+	
+	@PostMapping("/updateBoard")
+	public String updateBoard(Board board) {
+		boardService.updateBoard(board);
+		return "forward:getBoardList";
+	}
+	
+	@GetMapping("/deleteBoard")
+	public String deleteBoard(Board board) {
+		boardService.deleteBoard(board);
+		return "forward:getBoardList";
 	}
 }
