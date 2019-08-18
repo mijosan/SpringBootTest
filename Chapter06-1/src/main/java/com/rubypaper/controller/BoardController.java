@@ -55,4 +55,9 @@ public class BoardController {
 		boardService.deleteBoard(board);
 		return "forward:getBoardList";
 	}
+	
+	@GetMapping("/hello")
+	public void hello(Model model) {
+		model.addAttribute("greeting", "Hello 타임리프.^^");
+	}
 }
